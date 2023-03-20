@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sb-micrometer
+spec:
+  selector:
+    matchLabels:
+      app: sb-micrometer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sb-micrometer
+    spec:
+      containers:
+      - name: sb-micrometer
+        image: venkatesh5/sb-micrometer:latest
+        ports:
+        - containerPort: 8080
